@@ -27,7 +27,7 @@ def printline(message):
 
 time = time.strftime("%Y%m%d")
 
-#Agreement in Pricinple shapefile
+#Area of Interest shapefile
 AOI = arcpy.GetParameterAsText(0)
 
 #Data Range choices
@@ -39,8 +39,8 @@ printline(Year)
 #Save location
 save = arcpy.GetParameterAsText(3)
 
-#First Nation of Interest
-FN = arcpy.GetParameterAsText(4)
+#Name of Area of Interest
+name = arcpy.GetParameterAsText(4)
 
 #Location of BCGW w/Password embedded... You need to have a database called BCGW4Scripting.sde
 BCGW = r'Database Connections\BCGW4Scripting.sde'
@@ -115,7 +115,7 @@ if os.path.exists(saveloc) == False:
 lyr_fc.definitionQuery = defquery
 
 #Harvest Autorities inside of the AOI lands during the Quarter
-saveout = saveloc + '\\' + FN + '_Harvest_auth'
+saveout = saveloc + '\\' + name + '_Harvest_auth'
 arcpy.Clip_analysis(lyr_fc, AOI, saveout)
 
 #Add the percent inside field
@@ -142,5 +142,5 @@ for f in fieldList:
 		arcpy.DeleteField_management(saveout, dropFields)  
 #Field are removed 
 
-table_save = FN + '_TimberMarks_' + text
+table_save = name + '_TimberMarks_' + text
 arcpy.TableToTable_conversion(saveout, saveloc, table_save)
