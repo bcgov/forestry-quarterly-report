@@ -1,4 +1,4 @@
-#A tool to report the open timber marks inside AiP Land
+#A tool to report the open timber marks inside AOI Land
 #Written by Jesse Fraser (jesse.fraser@gov.bc.ca)
 #December 11th 2018
 #Modifed by Owen Fritch (owen.fritch@gov.bc.ca) May 30 2019
@@ -28,7 +28,7 @@ def printline(message):
 time = time.strftime("%Y%m%d")
 
 #Agreement in Pricinple shapefile
-AiP = arcpy.GetParameterAsText(0)
+AOI = arcpy.GetParameterAsText(0)
 
 #Data Range choices
 quarter = arcpy.GetParameterAsText(1)
@@ -114,9 +114,9 @@ if os.path.exists(saveloc) == False:
 #Definition Query based on quarter		
 lyr_fc.definitionQuery = defquery
 
-#Harvest Autorities inside of the AiP lands during the Quarter
+#Harvest Autorities inside of the AOI lands during the Quarter
 saveout = saveloc + '\\' + FN + '_Harvest_auth'
-arcpy.Clip_analysis(lyr_fc, AiP, saveout)
+arcpy.Clip_analysis(lyr_fc, AOI, saveout)
 
 #Add the percent inside field
 arcpy.AddField_management(saveout,"Percent_Inside", "Short")
@@ -129,7 +129,7 @@ arcpy.CalculateField_management(saveout,"Percent_Inside", calc, type)
 #Remove the fields that aren't of interest
 #Create a variable list
 dropFields = list()  
-#get a list of all the fields in the Harvest Authority inside AiP for the Quarter
+#get a list of all the fields in the Harvest Authority inside AOI for the Quarter
 fieldList = arcpy.ListFields(saveout)     
 #Keep the following fields                     
 keep_list = ["OBJECTID", "HARVEST_AUTH_STATUS_CODE","FOREST_FILE_ID","CUTTING_PERMIT_ID","ISSUE_DATE","EXPIRY_DATE", "TIMBER_MARK_PRIME", "CLIENT_NAME","FILE_TYPE_CODE", "FILE_TYPE_DESCRIPTION", "FEATURE_AREA_SQM", "GEOMETRY", "GEOMETRY_Length", "GEOMETRY_Area","Percent_Inside"]  
