@@ -1,4 +1,4 @@
-#A tool to report the open timber marks inside AOI Land
+#A tool to report the open timber marks inside an AOI
 #Written by Jesse Fraser (jesse.fraser@gov.bc.ca)
 #December 11th 2018
 #Modifed by Owen Fritch (owen.fritch@gov.bc.ca) May 30 2019
