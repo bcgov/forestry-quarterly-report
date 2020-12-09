@@ -57,7 +57,7 @@ lyr_fc = arcpy.mapping.Layer("test_lyr")
 
 #Definition Query fields
 issuedate = 'ISSUE_DATE'
-expirydate = 'EXPIRY_DATE'	
+expirydate = 'CURRENT_EXPIRY_DATE_CALC'	
 
 
 #If statement testing which quarter folks want
@@ -132,7 +132,7 @@ dropFields = list()
 #get a list of all the fields in the Harvest Authority inside AOI for the Quarter
 fieldList = arcpy.ListFields(saveout)     
 #Keep the following fields                     
-keep_list = ["OBJECTID", "HARVEST_AUTH_STATUS_CODE","FOREST_FILE_ID","CUTTING_PERMIT_ID","ISSUE_DATE","EXPIRY_DATE", "TIMBER_MARK_PRIME", "CLIENT_NAME","FILE_TYPE_CODE", "FILE_TYPE_DESCRIPTION", "FEATURE_AREA_SQM", "GEOMETRY", "GEOMETRY_Length", "GEOMETRY_Area","Percent_Inside"]  
+keep_list = ["OBJECTID", "HARVEST_AUTH_STATUS_CODE","FOREST_FILE_ID","CUTTING_PERMIT_ID","ISSUE_DATE","CURRENT_EXPIRY_DATE_CALC", "TIMBER_MARK_PRIME", "CLIENT_NAME","FILE_TYPE_CODE", "FILE_TYPE_DESCRIPTION", "FEATURE_AREA_SQM", "GEOMETRY", "GEOMETRY_Length", "GEOMETRY_Area","Percent_Inside"]  
 #Iterate through the list of fields
 for f in fieldList:  
 	#Add field to the list if it isn't in the keep list
