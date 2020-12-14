@@ -1,4 +1,5 @@
 # forestry-quarterly-report
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 An ArcPy tool that reports the total area of forest harvest activity based on BCGW data 
 over a business quarter in an AOI (based originally agreement in principle land) 
 needs a direct connection to BCGW via BCGW4Scripting.sde
